@@ -51,12 +51,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const blogRoutes = blogPosts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
+  const blogRoutes = blogPosts.map((post) => {
+    const urlPath = post.slug === 'cricket-betting-strategies-beginners'
+      ? `/cricket-betting-strategies-beginners/`
+      : `/blog/${post.slug}`;
+    return {
+      url: `${BASE_URL}${urlPath}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    };
+  });
 
   return [...staticRoutes, ...blogRoutes];
 }

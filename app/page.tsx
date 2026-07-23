@@ -47,27 +47,6 @@ export default function Home() {
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-yellow-500/10 blur-[120px] animate-float-delay pointer-events-none" />
       <div className="absolute inset-0 gold-grid opacity-30 pointer-events-none" />
 
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 glass-card border-b-0 border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex-shrink-0 flex items-center gap-2">
-              <Trophy className="h-8 w-8 text-yellow-500" />
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-600">
-                MAHADEV BOOK
-              </span>
-            </div>
-            <div className="flex items-center gap-4">
-              <button className="hidden md:block px-4 py-2 text-gray-300 hover:text-white transition-colors">
-                Login
-              </button>
-              <button className="px-6 py-2.5 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(234,179,8,0.3)]">
-                Get Your ID
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">

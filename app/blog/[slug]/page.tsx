@@ -7,9 +7,11 @@ import { Calendar, Clock, ChevronLeft } from "lucide-react";
 const BASE_URL = "https://mahadevreal.live";
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
+  return blogPosts
+    .filter((post) => post.slug !== "cricket-betting-strategies-beginners")
+    .map((post) => ({
+      slug: post.slug,
+    }));
 }
 
 interface PageProps {
@@ -19,7 +21,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
-  if (!post) return { title: "Post Not Found | Mahadev Book" };
+  if (!post || post.slug === "cricket-betting-strategies-beginners") return { title: "Post Not Found | Mahadev Book" };
   return {
     title: `${post.title} | Mahadev Book Blog`,
     description: post.excerpt || `Read ${post.title} on the Mahadev Book blog.`,
@@ -43,7 +45,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const resolvedParams = await params;
   const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
 
-  if (!post) {
+  if (!post || post.slug === "cricket-betting-strategies-beginners") {
     notFound();
   }
 
